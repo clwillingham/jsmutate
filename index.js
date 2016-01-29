@@ -4,13 +4,10 @@
 var esprima = require('esprima'),
     escodegen = require('escodegen'),
     fs = require('fs');
-var jst = esprima.parse(fs.readFileSync(__dirname+'/sample.js', 'utf-8'));
-var x;
-x = 5;
 
 function randomOperator(){
-    var operators = ['+', '-', '/', '*', '%'];
-    return operators[Math.round(Math.random()*4)];
+    var operators = ['+', '-', '/', '*', '%', '<<', '>>', '&', '|'];
+    return operators[Math.round(Math.random()*9)];
 }
 
 function parse(statement, level){
@@ -65,6 +62,7 @@ function parse(statement, level){
             if(typeof statement.value == 'number'){
                 if(Math.random() > 0.5) {
                     statement.value = statement.value + ((Math.random() - 0.5) * 10);
+                    if(statement.value < 0) statement.value = 0;
                     statement.raw = undefined;
                 }
             }
@@ -101,7 +99,12 @@ function parse(statement, level){
     }
     return statement;
 }
+
+module.exports.mutateSync = function(code){
+    var jst = esprima.parse(code);
+    return escodegen.generate(parse(jst));
+};
 //console.log(jst);
-var mutatedResult = parse(jst);
-console.log(escodegen.generate(mutatedResult));
+
+//console.log(escodegen.generate(mutatedResult));
 //console.log(JSON.stringify(mutatedResult, null, 2));
