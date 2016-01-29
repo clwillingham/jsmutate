@@ -1,0 +1,32 @@
+{
+  "name": "jsmutate",
+  "version": "0.0.1",
+  "description": "JSMutate is a library of code for creating randomly self modifying code which can be useful for evolutionary programming",
+  "main": "index.js",
+  "dependencies": {
+    "escodegen": "^1.7.0",
+    "esprima": "^2.7.0"
+  },
+  "devDependencies": {},
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/clwillingham/jsmutate.git"
+  },
+  "keywords": [
+    "jsmutate",
+    "evolution",
+    "evolutionary",
+    "self",
+    "modifying",
+    "how-to-screw-up-your-code"
+  ],
+  "author": "Chris Willingham",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/clwillingham/jsmutate/issues"
+  },
+  "homepage": "https://github.com/clwillingham/jsmutate#readme"
+}
