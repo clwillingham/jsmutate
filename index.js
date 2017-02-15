@@ -102,6 +102,7 @@ function parse(statement, level){
 
 module.exports.mutateSync = function(code){
     var jst = esprima.parse(code);
+    console.log(parse(jst));
     return escodegen.generate(parse(jst));
 };
 //console.log(jst);
