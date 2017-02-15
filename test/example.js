@@ -8,8 +8,6 @@ var jsmutate = require('../index');
 var code = fs.readFileSync('./sample.js', 'utf8');
 var moddedCode = code;// = jsmutate.mutateSync(code);
 console.log(code);
-for(var i=0;i < 5; i++){
-    moddedCode = jsmutate.mutateSync(moddedCode);
-    console.log('screwed up version: ');
-    console.log(moddedCode);
-}
+moddedCode = jsmutate.mutateSync(moddedCode);
+console.log('screwed up version: ');
+console.log(moddedCode);
